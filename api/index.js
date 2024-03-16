@@ -1,6 +1,7 @@
 import express from "express";
 import {PORT} from "./src/config/index.js"
 import dbConnect from "./src/database/index.js";
+import register from "./src/controllers/register.controller.js";
 import cors from "cors"
 
 const app = express();
@@ -12,6 +13,8 @@ app.get("/",(req,res)=>{
         "msg":"port is working"
     })
 })
+
+app.use("/api/",register)
 const port = PORT;
 dbConnect()
 
